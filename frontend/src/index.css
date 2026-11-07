@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Chart colours. The two series colours were checked with the data-viz palette validator
+   against this app's dark card colour (#0f172a): all checks passed. The app is dark-only. */
+:root {
+  --series-1: #3987e5; /* blue: first series, and the single colour for one-series bars */
+  --series-2: #d95926; /* orange: second series */
+  --chart-text: #c3c2b7;
+  --chart-muted: #898781;
+  --chart-grid: rgba(255, 255, 255, 0.08);
+  --chart-axis: rgba(255, 255, 255, 0.2);
+}
+
+body {
+  margin: 0;
+  background-color: #0b1220;
+  color: #e2e8f0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}

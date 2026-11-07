@@ -1,0 +1,46 @@
+# Secrets (never commit real values)
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+coverage/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# Data and models (datasets are large; document how to download them instead)
+ml-service/data/raw/
+ml-service/data/processed/
+ml-service/models/*
+!ml-service/models/.gitkeep
+*.joblib
+*.pkl
+ai-service/chroma_db/
+
+# Uploads and temp files
+backend/uploads/
+backend/tmp/
+*.tmp
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+ai-service/index_manifest.json
+
+# Sample files made from the dataset (do not publish dataset rows)
+ml-service/data/*.csv

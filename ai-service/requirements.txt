@@ -1,0 +1,6 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+python-dotenv>=1.0
+# Vector store. Needed for RAG_STORE=chroma (the default). Not needed for RAG_STORE=keyword.
+chromadb>=0.5
