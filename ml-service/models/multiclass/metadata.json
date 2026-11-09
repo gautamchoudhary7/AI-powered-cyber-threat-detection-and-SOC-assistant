@@ -1,0 +1,965 @@
+{
+  "model_version": "multiclass-20261105T110356Z-af868855",
+  "task": "multiclass",
+  "trained_at": "2026-11-05T11:03:56.263462+00:00",
+  "selected_model": "rf",
+  "selection": {
+    "basis": "validation",
+    "score": 0.5782131472243299,
+    "metric": "macro F1"
+  },
+  "class_names": [
+    "Analysis",
+    "Backdoor",
+    "DoS",
+    "Exploits",
+    "Fuzzers",
+    "Generic",
+    "Normal",
+    "Reconnaissance",
+    "Shellcode",
+    "Worms"
+  ],
+  "classes_raw": [
+    "Analysis",
+    "Backdoor",
+    "DoS",
+    "Exploits",
+    "Fuzzers",
+    "Generic",
+    "Normal",
+    "Reconnaissance",
+    "Shellcode",
+    "Worms"
+  ],
+  "positive_class_index": null,
+  "schema": {
+    "numeric": [
+      "dur",
+      "spkts",
+      "dpkts",
+      "sbytes",
+      "dbytes",
+      "rate",
+      "sttl",
+      "dttl",
+      "sload",
+      "dload",
+      "sloss",
+      "dloss",
+      "sinpkt",
+      "dinpkt",
+      "sjit",
+      "djit",
+      "swin",
+      "stcpb",
+      "dtcpb",
+      "dwin",
+      "tcprtt",
+      "synack",
+      "ackdat",
+      "smean",
+      "dmean",
+      "trans_depth",
+      "response_body_len",
+      "ct_srv_src",
+      "ct_state_ttl",
+      "ct_dst_ltm",
+      "ct_src_dport_ltm",
+      "ct_dst_sport_ltm",
+      "ct_dst_src_ltm",
+      "is_ftp_login",
+      "ct_ftp_cmd",
+      "ct_flw_http_mthd",
+      "ct_src_ltm",
+      "ct_srv_dst",
+      "is_sm_ips_ports"
+    ],
+    "categorical": [
+      "proto",
+      "service",
+      "state"
+    ],
+    "target": "attack_cat",
+    "excluded": [
+      "id",
+      "label"
+    ],
+    "categories": {
+      "proto": [
+        "3pc",
+        "a/n",
+        "aes-sp3-d",
+        "any",
+        "argus",
+        "aris",
+        "arp",
+        "ax.25",
+        "bbn-rcc",
+        "bna",
+        "br-sat-mon",
+        "cbt",
+        "cftp",
+        "chaos",
+        "compaq-peer",
+        "cphb",
+        "cpnx",
+        "crtp",
+        "crudp",
+        "dcn",
+        "ddp",
+        "ddx",
+        "dgp",
+        "egp",
+        "eigrp",
+        "emcon",
+        "encap",
+        "etherip",
+        "fc",
+        "fire",
+        "ggp",
+        "gmtp",
+        "gre",
+        "hmp",
+        "i-nlsp",
+        "iatp",
+        "ib",
+        "icmp",
+        "idpr",
+        "idpr-cmtp",
+        "idrp",
+        "ifmp",
+        "igmp",
+        "igp",
+        "il",
+        "ip",
+        "ipcomp",
+        "ipcv",
+        "ipip",
+        "iplt",
+        "ipnip",
+        "ippc",
+        "ipv6",
+        "ipv6-frag",
+        "ipv6-no",
+        "ipv6-opts",
+        "ipv6-route",
+        "ipx-n-ip",
+        "irtp",
+        "isis",
+        "iso-ip",
+        "iso-tp4",
+        "kryptolan",
+        "l2tp",
+        "larp",
+        "leaf-1",
+        "leaf-2",
+        "merit-inp",
+        "mfe-nsp",
+        "mhrp",
+        "micp",
+        "mobile",
+        "mtp",
+        "mux",
+        "narp",
+        "netblt",
+        "nsfnet-igp",
+        "nvp",
+        "ospf",
+        "pgm",
+        "pim",
+        "pipe",
+        "pnni",
+        "pri-enc",
+        "prm",
+        "ptp",
+        "pup",
+        "pvp",
+        "qnx",
+        "rdp",
+        "rsvp",
+        "rtp",
+        "rvd",
+        "sat-expak",
+        "sat-mon",
+        "sccopmce",
+        "scps",
+        "sctp",
+        "sdrp",
+        "secure-vmtp",
+        "sep",
+        "skip",
+        "sm",
+        "smp",
+        "snp",
+        "sprite-rpc",
+        "sps",
+        "srp",
+        "st2",
+        "stp",
+        "sun-nd",
+        "swipe",
+        "tcf",
+        "tcp",
+        "tlsp",
+        "tp++",
+        "trunk-1",
+        "trunk-2",
+        "ttp",
+        "udp",
+        "unas",
+        "uti",
+        "vines",
+        "visa",
+        "vmtp",
+        "vrrp",
+        "wb-expak",
+        "wb-mon",
+        "wsn",
+        "xnet",
+        "xns-idp",
+        "xtp",
+        "zero"
+      ],
+      "service": [
+        "-",
+        "dhcp",
+        "dns",
+        "ftp",
+        "ftp-data",
+        "http",
+        "irc",
+        "pop3",
+        "radius",
+        "smtp",
+        "snmp",
+        "ssh",
+        "ssl"
+      ],
+      "state": [
+        "CON",
+        "ECO",
+        "FIN",
+        "INT",
+        "PAR",
+        "REQ",
+        "RST",
+        "URN",
+        "no"
+      ]
+    }
+  },
+  "dataset": {
+    "train_file": "UNSW_NB15_training-set.csv",
+    "test_file": "UNSW_NB15_testing-set.csv",
+    "train_rows_raw": 175341,
+    "test_rows_raw": 82332,
+    "train_rows_missing_label_dropped": 0,
+    "test_rows_missing_label_dropped": 0,
+    "train_duplicate_rows_dropped": 67601,
+    "train_rows_used": 107740,
+    "test_rows_used": 82332,
+    "train_data_issues": {
+      "invalid_numeric": [],
+      "invalid_numeric_count": 0,
+      "non_finite_replaced": 0,
+      "missing_cells": 0
+    },
+    "test_data_issues": {
+      "invalid_numeric": [],
+      "invalid_numeric_count": 0,
+      "non_finite_replaced": 0,
+      "missing_cells": 0,
+      "unseen_categories": {
+        "state": [
+          "ACC",
+          "CLO"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "models_requested": [
+      "logreg",
+      "rf"
+    ],
+    "class_weight": "balanced",
+    "val_fraction": 0.2,
+    "seed": 42,
+    "rf_estimators": 100,
+    "max_train_rows": null
+  },
+  "candidates": {
+    "logreg": {
+      "status": "ok",
+      "fit_seconds": 31.46,
+      "selection_score": 0.43534942609238314,
+      "validation_metrics": {
+        "n_samples": 21548,
+        "accuracy": 0.6783460181919436,
+        "macro_precision": 0.4556481004200026,
+        "macro_recall": 0.5983494840594079,
+        "macro_f1": 0.43534942609238314,
+        "weighted_f1": 0.7223923562008431,
+        "per_class": {
+          "Analysis": {
+            "precision": 0.14678899082568808,
+            "recall": 0.5015673981191222,
+            "f1": 0.22711142654364797,
+            "support": 319,
+            "false_positive_rate": 0.04380799849262801
+          },
+          "Backdoor": {
+            "precision": 0.1443850267379679,
+            "recall": 0.3517915309446254,
+            "f1": 0.204739336492891,
+            "support": 307,
+            "false_positive_rate": 0.030130408172873217
+          },
+          "DoS": {
+            "precision": 0.27751196172248804,
+            "recall": 0.07621550591327202,
+            "f1": 0.11958762886597939,
+            "support": 761,
+            "false_positive_rate": 0.007264155481791505
+          },
+          "Exploits": {
+            "precision": 0.8386253268584236,
+            "recall": 0.5656336608717561,
+            "f1": 0.6755943424616311,
+            "support": 3969,
+            "false_positive_rate": 0.024574776722225383
+          },
+          "Fuzzers": {
+            "precision": 0.5509586276488395,
+            "recall": 0.6761609907120743,
+            "f1": 0.6071726438698916,
+            "support": 3230,
+            "false_positive_rate": 0.09717218036903592
+          },
+          "Generic": {
+            "precision": 0.9304589707927677,
+            "recall": 0.8002392344497608,
+            "f1": 0.8604501607717042,
+            "support": 836,
+            "false_positive_rate": 0.002414059482425647
+          },
+          "Normal": {
+            "precision": 0.9966305655836342,
+            "recall": 0.7980343033339757,
+            "f1": 0.8863441780821918,
+            "support": 10378,
+            "false_positive_rate": 0.002506714413607878
+          },
+          "Reconnaissance": {
+            "precision": 0.5043795620437956,
+            "recall": 0.45944148936170215,
+            "f1": 0.48086290883785665,
+            "support": 1504,
+            "false_positive_rate": 0.033875473957293956
+          },
+          "Shellcode": {
+            "precision": 0.14699331848552338,
+            "recall": 0.908256880733945,
+            "f1": 0.25303514376996805,
+            "support": 218,
+            "false_positive_rate": 0.053867791842475386
+          },
+          "Worms": {
+            "precision": 0.019748653500897665,
+            "recall": 0.8461538461538461,
+            "f1": 0.03859649122807018,
+            "support": 26,
+            "false_positive_rate": 0.05073877892389183
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Analysis",
+            "Backdoor",
+            "DoS",
+            "Exploits",
+            "Fuzzers",
+            "Generic",
+            "Normal",
+            "Reconnaissance",
+            "Shellcode",
+            "Worms"
+          ],
+          "matrix": [
+            [
+              160,
+              139,
+              6,
+              11,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0
+            ],
+            [
+              140,
+              108,
+              8,
+              2,
+              4,
+              0,
+              1,
+              29,
+              5,
+              10
+            ],
+            [
+              134,
+              116,
+              58,
+              231,
+              49,
+              9,
+              7,
+              21,
+              63,
+              73
+            ],
+            [
+              230,
+              127,
+              97,
+              2245,
+              231,
+              24,
+              15,
+              128,
+              193,
+              679
+            ],
+            [
+              131,
+              123,
+              11,
+              39,
+              2184,
+              8,
+              3,
+              289,
+              374,
+              68
+            ],
+            [
+              36,
+              20,
+              8,
+              46,
+              16,
+              669,
+              1,
+              6,
+              11,
+              23
+            ],
+            [
+              132,
+              3,
+              14,
+              102,
+              1415,
+              2,
+              8282,
+              193,
+              229,
+              6
+            ],
+            [
+              127,
+              112,
+              7,
+              1,
+              58,
+              7,
+              0,
+              691,
+              270,
+              231
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              7,
+              0,
+              1,
+              10,
+              198,
+              2
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              22
+            ]
+          ]
+        }
+      }
+    },
+    "rf": {
+      "status": "ok",
+      "fit_seconds": 63.49,
+      "selection_score": 0.5782131472243299,
+      "validation_metrics": {
+        "n_samples": 21548,
+        "accuracy": 0.8014664934100613,
+        "macro_precision": 0.5807358546345192,
+        "macro_recall": 0.6007834091913798,
+        "macro_f1": 0.5782131472243299,
+        "weighted_f1": 0.8166025365564968,
+        "per_class": {
+          "Analysis": {
+            "precision": 0.062326869806094184,
+            "recall": 0.14106583072100312,
+            "f1": 0.08645533141210375,
+            "support": 319,
+            "false_positive_rate": 0.03189033868764426
+          },
+          "Backdoor": {
+            "precision": 0.07579787234042554,
+            "recall": 0.18566775244299674,
+            "f1": 0.10764872521246459,
+            "support": 307,
+            "false_positive_rate": 0.03271974012522951
+          },
+          "DoS": {
+            "precision": 0.3822843822843823,
+            "recall": 0.21550591327201052,
+            "f1": 0.27563025210084036,
+            "support": 761,
+            "false_positive_rate": 0.012748352335594362
+          },
+          "Exploits": {
+            "precision": 0.8446627035409666,
+            "recall": 0.8233812043335853,
+            "f1": 0.833886195458025,
+            "support": 3969,
+            "false_positive_rate": 0.034188520393651514
+          },
+          "Fuzzers": {
+            "precision": 0.6674030436917034,
+            "recall": 0.8417956656346749,
+            "f1": 0.7445235487404163,
+            "support": 3230,
+            "false_positive_rate": 0.07397095752811442
+          },
+          "Generic": {
+            "precision": 0.9562146892655368,
+            "recall": 0.8098086124401914,
+            "f1": 0.8769430051813472,
+            "support": 836,
+            "false_positive_rate": 0.0014967168791039012
+          },
+          "Normal": {
+            "precision": 0.9785589899869395,
+            "recall": 0.8663518982462902,
+            "f1": 0.9190432382704692,
+            "support": 10378,
+            "false_positive_rate": 0.01763652641002686
+          },
+          "Reconnaissance": {
+            "precision": 0.8205673758865248,
+            "recall": 0.769281914893617,
+            "f1": 0.7940974605353466,
+            "support": 1504,
+            "false_positive_rate": 0.012622231091598483
+          },
+          "Shellcode": {
+            "precision": 0.4810810810810811,
+            "recall": 0.8165137614678899,
+            "f1": 0.6054421768707483,
+            "support": 218,
+            "false_positive_rate": 0.0090014064697609
+          },
+          "Worms": {
+            "precision": 0.5384615384615384,
+            "recall": 0.5384615384615384,
+            "f1": 0.5384615384615384,
+            "support": 26,
+            "false_positive_rate": 0.0005575689991636465
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "Analysis",
+            "Backdoor",
+            "DoS",
+            "Exploits",
+            "Fuzzers",
+            "Generic",
+            "Normal",
+            "Reconnaissance",
+            "Shellcode",
+            "Worms"
+          ],
+          "matrix": [
+            [
+              45,
+              164,
+              66,
+              12,
+              1,
+              3,
+              22,
+              6,
+              0,
+              0
+            ],
+            [
+              165,
+              57,
+              54,
+              10,
+              2,
+              4,
+              0,
+              12,
+              3,
+              0
+            ],
+            [
+              98,
+              122,
+              164,
+              278,
+              30,
+              7,
+              2,
+              25,
+              34,
+              1
+            ],
+            [
+              113,
+              126,
+              79,
+              3268,
+              100,
+              9,
+              13,
+              174,
+              79,
+              8
+            ],
+            [
+              117,
+              118,
+              24,
+              38,
+              2719,
+              4,
+              156,
+              10,
+              43,
+              1
+            ],
+            [
+              19,
+              32,
+              14,
+              70,
+              14,
+              677,
+              1,
+              2,
+              6,
+              1
+            ],
+            [
+              63,
+              2,
+              7,
+              95,
+              1177,
+              1,
+              8991,
+              19,
+              22,
+              1
+            ],
+            [
+              102,
+              131,
+              21,
+              84,
+              4,
+              2,
+              1,
+              1157,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              7,
+              25,
+              1,
+              2,
+              5,
+              178,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              7,
+              2,
+              0,
+              0,
+              0,
+              3,
+              14
+            ]
+          ]
+        }
+      }
+    }
+  },
+  "test_metrics": {
+    "n_samples": 82332,
+    "accuracy": 0.7020235145508429,
+    "macro_precision": 0.5495255275350658,
+    "macro_recall": 0.6032027665069378,
+    "macro_f1": 0.4959613710948602,
+    "weighted_f1": 0.7487680401458825,
+    "per_class": {
+      "Analysis": {
+        "precision": 0.05610663360198388,
+        "recall": 0.2673559822747415,
+        "f1": 0.09274916730719959,
+        "support": 677,
+        "false_positive_rate": 0.0372910415773682
+      },
+      "Backdoor": {
+        "precision": 0.05261504633265274,
+        "recall": 0.5746140651801029,
+        "f1": 0.09640287769784173,
+        "support": 583,
+        "false_positive_rate": 0.07378683531297019
+      },
+      "DoS": {
+        "precision": 0.6185897435897436,
+        "recall": 0.09439960870628515,
+        "f1": 0.1638022490982389,
+        "support": 4089,
+        "false_positive_rate": 0.003041805656736066
+      },
+      "Exploits": {
+        "precision": 0.7586870522826901,
+        "recall": 0.6374416097736256,
+        "f1": 0.6927996094703441,
+        "support": 11132,
+        "false_positive_rate": 0.03169943820224719
+      },
+      "Fuzzers": {
+        "precision": 0.2648463245678929,
+        "recall": 0.6496205872649291,
+        "f1": 0.3762839806984855,
+        "support": 6062,
+        "false_positive_rate": 0.14331978497443293
+      },
+      "Generic": {
+        "precision": 0.9986331328594861,
+        "recall": 0.9678872343807959,
+        "f1": 0.9830198326202201,
+        "support": 18871,
+        "false_positive_rate": 0.0003939427364838247
+      },
+      "Normal": {
+        "precision": 0.9863240946793446,
+        "recall": 0.6588378378378379,
+        "f1": 0.7899862270112614,
+        "support": 37000,
+        "false_positive_rate": 0.007456101650048531
+      },
+      "Reconnaissance": {
+        "precision": 0.8538324420677362,
+        "recall": 0.8220823798627003,
+        "f1": 0.8376566598659283,
+        "support": 3496,
+        "false_positive_rate": 0.006240803693743975
+      },
+      "Shellcode": {
+        "precision": 0.2181208053691275,
+        "recall": 0.8597883597883598,
+        "f1": 0.34796573875803,
+        "support": 378,
+        "false_positive_rate": 0.014215291504990605
+      },
+      "Worms": {
+        "precision": 0.6875,
+        "recall": 0.5,
+        "f1": 0.5789473684210527,
+        "support": 44,
+        "false_positive_rate": 0.00012152440209994167
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "Analysis",
+        "Backdoor",
+        "DoS",
+        "Exploits",
+        "Fuzzers",
+        "Generic",
+        "Normal",
+        "Reconnaissance",
+        "Shellcode",
+        "Worms"
+      ],
+      "matrix": [
+        [
+          181,
+          393,
+          0,
+          57,
+          44,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          177,
+          335,
+          2,
+          10,
+          50,
+          0,
+          0,
+          2,
+          7,
+          0
+        ],
+        [
+          556,
+          2228,
+          386,
+          646,
+          132,
+          10,
+          3,
+          52,
+          74,
+          2
+        ],
+        [
+          701,
+          2323,
+          119,
+          7096,
+          294,
+          7,
+          28,
+          311,
+          249,
+          4
+        ],
+        [
+          367,
+          787,
+          17,
+          237,
+          3938,
+          3,
+          301,
+          42,
+          370,
+          0
+        ],
+        [
+          14,
+          29,
+          44,
+          411,
+          72,
+          18265,
+          0,
+          5,
+          28,
+          3
+        ],
+        [
+          1179,
+          3,
+          43,
+          707,
+          10270,
+          5,
+          24377,
+          71,
+          344,
+          1
+        ],
+        [
+          51,
+          269,
+          11,
+          163,
+          33,
+          0,
+          3,
+          2874,
+          92,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          9,
+          33,
+          0,
+          2,
+          8,
+          325,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          17,
+          3,
+          0,
+          0,
+          0,
+          1,
+          22
+        ]
+      ]
+    }
+  },
+  "library_versions": {
+    "python": "3.13.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "2.3.0",
+    "numpy": "2.3.0",
+    "joblib": "1.5.3"
+  },
+  "model_sha256": "af86885592fc068412087f4b4b1d08af8641a7f051e80e6fef763d0468aaf2c6",
+  "notes": [
+    "The model was selected using the validation split only; the official test file was scored once, after selection.",
+    "Predicted probabilities are not calibrated. Treat them as scores, not exact chances.",
+    "Results describe this dataset only. Real-world traffic will differ and results will likely be worse."
+  ]
+}

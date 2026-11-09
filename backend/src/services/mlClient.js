@@ -13,9 +13,12 @@ class MlError extends Error {
   }
 }
 
+// The shared secret goes in a header, never in the URL. Nothing is sent when no key is configured.
+const internalHeaders = () => (config.mlInternalKey ? { 'x-internal-key': config.mlInternalKey } : {});
+
 async function getMlHealth() {
   try {
-    const res = await axios.get(`${config.mlServiceUrl}/health`, { timeout: 3000 });
+    const res = await axios.get(`${config.mlServiceUrl}/health`, { timeout: 3000, headers: internalHeaders() });
     return { reachable: true, ...res.data };
   } catch (err) {
     return { reachable: false, error: 'ML service is unreachable' };
@@ -30,6 +33,9 @@ function toMlError(err) {
   const { status, data } = err.response;
   const code = data && data.error && data.error.code;
   const details = data && data.error && data.error.details;
+  if (status === 403 || (status === 503 && code === 'access_not_configured')) {
+    return new MlError('error', 'The ML service refused the request. Check that ML_INTERNAL_KEY is the same in backend/.env and in the ML service settings.');
+  }
   if (status === 503 && code === 'detection_not_configured') {
     return new MlError('not_configured', 'Detection is not configured: no trained model is available.');
   }
@@ -43,7 +49,7 @@ function toMlError(err) {
 // What the trained detector needs: its version and the feature columns it was trained on.
 async function getModelInfo() {
   try {
-    const res = await axios.get(`${config.mlServiceUrl}/model/info`, { timeout: 5000 });
+    const res = await axios.get(`${config.mlServiceUrl}/model/info`, { timeout: 5000, headers: internalHeaders() });
     const detector = res.data && res.data.detector;
     const schema = detector && detector.schema;
     if (!detector || !schema || !Array.isArray(schema.numeric) || !Array.isArray(schema.categorical)) {
@@ -63,7 +69,7 @@ async function getModelInfo() {
 // Sends records ({column: value}) and returns the ML service response unchanged.
 async function predictBatch(records) {
   try {
-    const res = await axios.post(`${config.mlServiceUrl}/predict`, { records }, { timeout: 60000 });
+    const res = await axios.post(`${config.mlServiceUrl}/predict`, { records }, { timeout: 60000, headers: internalHeaders() });
     return res.data;
   } catch (err) {
     throw toMlError(err);

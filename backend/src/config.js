@@ -30,6 +30,8 @@ const config = {
   aiServiceUrl: process.env.AI_SERVICE_URL || 'http://localhost:8001',
   // Shared secret the AI service requires (its INTERNAL_API_KEY). Sent only from this server, never to the browser.
   aiInternalKey: process.env.AI_INTERNAL_KEY || '',
+  // Shared secret the ML service requires when it sets ML_INTERNAL_KEY. Empty = send nothing (local development).
+  mlInternalKey: process.env.ML_INTERNAL_KEY || '',
   assistantRateLimitMax: intFromEnv('ASSISTANT_RATE_LIMIT_MAX', 20),
   // The agent only SUGGESTS actions; a person must approve each one. This switch turns scanning and approving off.
   agentEnabled: (process.env.AGENT_ENABLED || 'true').toLowerCase() !== 'false',

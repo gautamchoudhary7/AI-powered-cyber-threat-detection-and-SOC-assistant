@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from fastapi import FastAPI, Request
+from fastapi import Depends, FastAPI, Header, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -11,6 +11,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from app import config, registry
 from app.errors import ApiError
+from app.security import require_internal_key_value
 from app.ml.predictor import InvalidRecords, ModelLoadError, ModelNotConfigured
 
 app = FastAPI(title="SOC ML Service", version="0.3.0")
@@ -51,13 +52,18 @@ def _load_failed() -> ApiError:
     return ApiError(500, "model_load_failed", "A model file exists but could not be loaded. Check the service logs and retrain.")
 
 
+def require_internal_key(x_internal_key: str | None = Header(default=None)) -> None:
+    """Dependency for the endpoints that read model details or score traffic."""
+    require_internal_key_value(x_internal_key)
+
+
 # ---- endpoints ------------------------------------------------------------------------------
 @app.get("/health")
 def health():
     return {"service": "ml-service", "status": "ok", **registry.detector_status()}
 
 
-@app.get("/model/info")
+@app.get("/model/info", dependencies=[Depends(require_internal_key)])
 def model_info():
     try:
         detector = registry.get_detector()
@@ -81,7 +87,7 @@ class PredictRequest(BaseModel):
     records: list[dict[str, Any]] = Field(min_length=1)
 
 
-@app.post("/predict")
+@app.post("/predict", dependencies=[Depends(require_internal_key)])
 def predict(request: PredictRequest):
     if len(request.records) > config.MAX_RECORDS:
         raise ApiError(413, "too_many_records", f"At most {config.MAX_RECORDS} records are accepted per request.")

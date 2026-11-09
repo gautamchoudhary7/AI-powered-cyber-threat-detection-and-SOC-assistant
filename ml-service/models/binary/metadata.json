@@ -1,0 +1,460 @@
+{
+  "model_version": "binary-20261105T094038Z-4df6b13d",
+  "task": "binary",
+  "trained_at": "2026-11-05T09:40:38.031329+00:00",
+  "selected_model": "rf",
+  "selection": {
+    "basis": "validation",
+    "score": 0.9360195787081549,
+    "metric": "attack-class F1"
+  },
+  "class_names": [
+    "normal",
+    "attack"
+  ],
+  "classes_raw": [
+    "0",
+    "1"
+  ],
+  "positive_class_index": 1,
+  "schema": {
+    "numeric": [
+      "dur",
+      "spkts",
+      "dpkts",
+      "sbytes",
+      "dbytes",
+      "rate",
+      "sttl",
+      "dttl",
+      "sload",
+      "dload",
+      "sloss",
+      "dloss",
+      "sinpkt",
+      "dinpkt",
+      "sjit",
+      "djit",
+      "swin",
+      "stcpb",
+      "dtcpb",
+      "dwin",
+      "tcprtt",
+      "synack",
+      "ackdat",
+      "smean",
+      "dmean",
+      "trans_depth",
+      "response_body_len",
+      "ct_srv_src",
+      "ct_state_ttl",
+      "ct_dst_ltm",
+      "ct_src_dport_ltm",
+      "ct_dst_sport_ltm",
+      "ct_dst_src_ltm",
+      "is_ftp_login",
+      "ct_ftp_cmd",
+      "ct_flw_http_mthd",
+      "ct_src_ltm",
+      "ct_srv_dst",
+      "is_sm_ips_ports"
+    ],
+    "categorical": [
+      "proto",
+      "service",
+      "state"
+    ],
+    "target": "label",
+    "excluded": [
+      "id",
+      "attack_cat"
+    ],
+    "categories": {
+      "proto": [
+        "3pc",
+        "a/n",
+        "aes-sp3-d",
+        "any",
+        "argus",
+        "aris",
+        "arp",
+        "ax.25",
+        "bbn-rcc",
+        "bna",
+        "br-sat-mon",
+        "cbt",
+        "cftp",
+        "chaos",
+        "compaq-peer",
+        "cphb",
+        "cpnx",
+        "crtp",
+        "crudp",
+        "dcn",
+        "ddp",
+        "ddx",
+        "dgp",
+        "egp",
+        "eigrp",
+        "emcon",
+        "encap",
+        "etherip",
+        "fc",
+        "fire",
+        "ggp",
+        "gmtp",
+        "gre",
+        "hmp",
+        "i-nlsp",
+        "iatp",
+        "ib",
+        "icmp",
+        "idpr",
+        "idpr-cmtp",
+        "idrp",
+        "ifmp",
+        "igmp",
+        "igp",
+        "il",
+        "ip",
+        "ipcomp",
+        "ipcv",
+        "ipip",
+        "iplt",
+        "ipnip",
+        "ippc",
+        "ipv6",
+        "ipv6-frag",
+        "ipv6-no",
+        "ipv6-opts",
+        "ipv6-route",
+        "ipx-n-ip",
+        "irtp",
+        "isis",
+        "iso-ip",
+        "iso-tp4",
+        "kryptolan",
+        "l2tp",
+        "larp",
+        "leaf-1",
+        "leaf-2",
+        "merit-inp",
+        "mfe-nsp",
+        "mhrp",
+        "micp",
+        "mobile",
+        "mtp",
+        "mux",
+        "narp",
+        "netblt",
+        "nsfnet-igp",
+        "nvp",
+        "ospf",
+        "pgm",
+        "pim",
+        "pipe",
+        "pnni",
+        "pri-enc",
+        "prm",
+        "ptp",
+        "pup",
+        "pvp",
+        "qnx",
+        "rdp",
+        "rsvp",
+        "rtp",
+        "rvd",
+        "sat-expak",
+        "sat-mon",
+        "sccopmce",
+        "scps",
+        "sctp",
+        "sdrp",
+        "secure-vmtp",
+        "sep",
+        "skip",
+        "sm",
+        "smp",
+        "snp",
+        "sprite-rpc",
+        "sps",
+        "srp",
+        "st2",
+        "stp",
+        "sun-nd",
+        "swipe",
+        "tcf",
+        "tcp",
+        "tlsp",
+        "tp++",
+        "trunk-1",
+        "trunk-2",
+        "ttp",
+        "udp",
+        "unas",
+        "uti",
+        "vines",
+        "visa",
+        "vmtp",
+        "vrrp",
+        "wb-expak",
+        "wb-mon",
+        "wsn",
+        "xnet",
+        "xns-idp",
+        "xtp",
+        "zero"
+      ],
+      "service": [
+        "-",
+        "dhcp",
+        "dns",
+        "ftp",
+        "ftp-data",
+        "http",
+        "irc",
+        "pop3",
+        "radius",
+        "smtp",
+        "snmp",
+        "ssh",
+        "ssl"
+      ],
+      "state": [
+        "CON",
+        "ECO",
+        "FIN",
+        "INT",
+        "PAR",
+        "REQ",
+        "RST",
+        "URN",
+        "no"
+      ]
+    }
+  },
+  "dataset": {
+    "train_file": "UNSW_NB15_training-set.csv",
+    "test_file": "UNSW_NB15_testing-set.csv",
+    "train_rows_raw": 175341,
+    "test_rows_raw": 82332,
+    "train_rows_missing_label_dropped": 0,
+    "test_rows_missing_label_dropped": 0,
+    "train_duplicate_rows_dropped": 67601,
+    "train_rows_used": 107740,
+    "test_rows_used": 82332,
+    "train_data_issues": {
+      "invalid_numeric": [],
+      "invalid_numeric_count": 0,
+      "non_finite_replaced": 0,
+      "missing_cells": 0
+    },
+    "test_data_issues": {
+      "invalid_numeric": [],
+      "invalid_numeric_count": 0,
+      "non_finite_replaced": 0,
+      "missing_cells": 0,
+      "unseen_categories": {
+        "state": [
+          "ACC",
+          "CLO"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "models_requested": [
+      "logreg",
+      "rf"
+    ],
+    "class_weight": null,
+    "val_fraction": 0.2,
+    "seed": 42,
+    "rf_estimators": 100,
+    "max_train_rows": null
+  },
+  "candidates": {
+    "logreg": {
+      "status": "ok",
+      "fit_seconds": 2.19,
+      "selection_score": 0.9124069271312641,
+      "validation_metrics": {
+        "n_samples": 21548,
+        "accuracy": 0.9028216075737887,
+        "macro_precision": 0.913176833726052,
+        "macro_recall": 0.9000153551181629,
+        "macro_f1": 0.901643797072667,
+        "weighted_f1": 0.9020393975463262,
+        "per_class": {
+          "normal": {
+            "precision": 0.9700408533817522,
+            "recall": 0.8236654461360571,
+            "f1": 0.8908806670140699,
+            "support": 10378,
+            "false_positive_rate": 0.023634735899731422
+          },
+          "attack": {
+            "precision": 0.8563128140703518,
+            "recall": 0.9763652641002686,
+            "f1": 0.9124069271312641,
+            "support": 11170,
+            "false_positive_rate": 0.17633455386394295
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              8548,
+              1830
+            ],
+            [
+              264,
+              10906
+            ]
+          ]
+        },
+        "detection": {
+          "positive_class": "attack",
+          "true_positives": 10906,
+          "false_positives": 1830,
+          "true_negatives": 8548,
+          "false_negatives": 264,
+          "precision": 0.8563128140703518,
+          "recall": 0.9763652641002686,
+          "f1": 0.9124069271312641,
+          "false_positive_rate": 0.17633455386394295,
+          "false_negative_rate": 0.023634735899731422,
+          "roc_auc": 0.9700159443061238
+        }
+      }
+    },
+    "rf": {
+      "status": "ok",
+      "fit_seconds": 7.98,
+      "selection_score": 0.9360195787081549,
+      "validation_metrics": {
+        "n_samples": 21548,
+        "accuracy": 0.9320586597364025,
+        "macro_precision": 0.9337463465034211,
+        "macro_recall": 0.931040992472024,
+        "macro_f1": 0.9317972633819789,
+        "weighted_f1": 0.9319524552205871,
+        "per_class": {
+          "normal": {
+            "precision": 0.9531313542090281,
+            "recall": 0.9033532472538062,
+            "f1": 0.9275749480558029,
+            "support": 10378,
+            "false_positive_rate": 0.041271262309758285
+          },
+          "attack": {
+            "precision": 0.9143613387978142,
+            "recall": 0.9587287376902417,
+            "f1": 0.9360195787081549,
+            "support": 11170,
+            "false_positive_rate": 0.09664675274619387
+          }
+        },
+        "confusion_matrix": {
+          "labels": [
+            "normal",
+            "attack"
+          ],
+          "matrix": [
+            [
+              9375,
+              1003
+            ],
+            [
+              461,
+              10709
+            ]
+          ]
+        },
+        "detection": {
+          "positive_class": "attack",
+          "true_positives": 10709,
+          "false_positives": 1003,
+          "true_negatives": 9375,
+          "false_negatives": 461,
+          "precision": 0.9143613387978142,
+          "recall": 0.9587287376902417,
+          "f1": 0.9360195787081549,
+          "false_positive_rate": 0.09664675274619387,
+          "false_negative_rate": 0.041271262309758285,
+          "roc_auc": 0.9869657950077924
+        }
+      }
+    }
+  },
+  "test_metrics": {
+    "n_samples": 82332,
+    "accuracy": 0.8659816353301268,
+    "macro_precision": 0.8948562868683347,
+    "macro_recall": 0.8522852909823262,
+    "macro_f1": 0.859061200817457,
+    "weighted_f1": 0.8622217500588276,
+    "per_class": {
+      "normal": {
+        "precision": 0.9792897223862965,
+        "recall": 0.716945945945946,
+        "f1": 0.8278304830857571,
+        "support": 37000,
+        "false_positive_rate": 0.012375363981293568
+      },
+      "attack": {
+        "precision": 0.8104228513503728,
+        "recall": 0.9876246360187064,
+        "f1": 0.8902919185491569,
+        "support": 45332,
+        "false_positive_rate": 0.28305405405405404
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "normal",
+        "attack"
+      ],
+      "matrix": [
+        [
+          26527,
+          10473
+        ],
+        [
+          561,
+          44771
+        ]
+      ]
+    },
+    "detection": {
+      "positive_class": "attack",
+      "true_positives": 44771,
+      "false_positives": 10473,
+      "true_negatives": 26527,
+      "false_negatives": 561,
+      "precision": 0.8104228513503728,
+      "recall": 0.9876246360187064,
+      "f1": 0.8902919185491569,
+      "false_positive_rate": 0.28305405405405404,
+      "false_negative_rate": 0.012375363981293568,
+      "roc_auc": 0.9823461193810946
+    }
+  },
+  "library_versions": {
+    "python": "3.13.1",
+    "scikit-learn": "1.8.0",
+    "pandas": "2.3.0",
+    "numpy": "2.3.0",
+    "joblib": "1.5.3"
+  },
+  "model_sha256": "4df6b13d9b550c0768e95fe6b331cb1fad4ae2a540c41106dba5c59d12b09c96",
+  "notes": [
+    "The model was selected using the validation split only; the official test file was scored once, after selection.",
+    "Predicted probabilities are not calibrated. Treat them as scores, not exact chances.",
+    "Results describe this dataset only. Real-world traffic will differ and results will likely be worse."
+  ]
+}
